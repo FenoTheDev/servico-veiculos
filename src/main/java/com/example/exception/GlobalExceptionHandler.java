@@ -48,4 +48,14 @@ public class GlobalExceptionHandler {
         pd.setDetail("Ocorreu um erro inesperado: " + ex.getMessage());
         return pd;
     }
+
+    @ExceptionHandler (PlacaJaEmUsoException.class)
+    @ResponseStatus (HttpStatus.BAD_REQUEST)
+    public ProblemDetail placaEmUsoHandle(PlacaJaEmUsoException ex){
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        pd.setTitle("placa ja esta em uso");
+        pd.setDetail("Escolha outra placa! Erro: " + ex.getMessage());
+        return pd;
+
+    }
 }
