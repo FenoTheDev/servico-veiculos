@@ -33,7 +33,7 @@ public class VeiculoService {
         veiculo.setTipo(veiculoDto.getTipo());//Vai receber DTOS
         veiculo.setNomeProprietario(veiculoDto.getNomeProprietario());//Vai receber DTOS
 
-        return repository.save(null);//Vai receber DTOS
+        return repository.save(veiculo);//Vai receber DTOS
     }
 
     public Veiculo buscarCarroPorId(Long id){

@@ -39,7 +39,7 @@ public class VeiculoController {
         return service.listarVeiculos();
     }
 
-    @PostMapping
+    @PostMapping("/veiculos")
     public ResponseEntity<VeiculoResponseDTO> criar(@Valid @RequestBody VeiculoRequestDTO dto){
         Veiculo salvo = service.cadastrarVeiculo(dto);
         
@@ -54,12 +54,12 @@ public class VeiculoController {
         var uri = URI.create("/veiculos/" + salvo.getId());
         return ResponseEntity.created(uri).body(responseDTO);
     }
-    @GetMapping("/veiculos/{id}")
+    @GetMapping("/veiculos{id}")
     public Veiculo buscarVeiculoID(@PathVariable Long id){
         return service.buscarCarroPorId(id);
     }
 
-    @PutMapping("/veiculos/{id}")
+    @PutMapping("/veiculos{id}")
     public Veiculo alterarVeiculo(@PathVariable Long id){
         return service.alterarVeiculos(id);
     }
